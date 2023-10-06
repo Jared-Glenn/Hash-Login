@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
+    
+    <div class="contaner">
+        {% for msg in get_flashed_messages() %}
+        <div class="alert alter-danger">{{ msg }}</div>
+        {% endfor %}
+
+    </div>
+    
     <h1>HASH USER TEST</h1>
 
     {% block content %} Content {% endblock %}
+
+    <br>
 
     <footer>Copyright Jared Glenn</footer>
 
