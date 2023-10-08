@@ -45,3 +45,20 @@ class User(db.Model):
         return f"<User {self.id} {self.username} {self.password} {self.email} {self.first_name} {self.last_name} >"
     
     
+class Feedback(db.Model):
+    """Feedback model."""
+    
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    title = db.Column(db.String(100),
+                      nullable=False)
+    content = db.Column(db.String(),
+                        nullable=False)
+    username = db.Column(db.String(20),
+                         db.ForeignKey('users.username'),
+                         nullable=False)
+    
+    def __repr__(self):
+        return f"<Feedback {self.id} {self.title} {self.content} {self.username} >"
+

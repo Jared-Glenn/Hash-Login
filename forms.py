@@ -23,3 +23,10 @@ class LoginForm(FlaskForm):
                            validators=[Length(max=20, message="Username maximum length is 20 characters.")])
     password = PasswordField("Password")
     
+
+class FeedbackForm(FlaskForm):
+    """Form for providing feedback from a specific user."""
+    
+    title = StringField("Title",
+                           validators=[Length(max=100, message="Title maximum length is 100 characters.")])
+    content = StringField("Feedback Content")

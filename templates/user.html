@@ -11,5 +11,25 @@
 <p><strong>First Name: </strong> {{ user.first_name }} </p>
 <p><strong>Last Name: </strong> {{ user.last_name }} </p>
 
+<button class="add-feedback-link" onclick="location.href='/users/{{username}}/feedback/add';">Give Feedback</button>
+
+{% for comment in feedback %}
+<br>
+
+<p><a href="/feedback/{{ comment.id }}/update"><strong>{{ comment.title }}</strong></a></p>
+<form action="/feedback/{{ comment.id }}/delete" method="POST">
+    <button type="submit">Delete Feedback</button>
+</form>
+
+<p>{{ comment.content }}</p>
+
+{% endfor %}
+
+<br>
+
+<form action="/users/{{user.username}}/delete" method="POST">
+    <button type="submit">Delete User</button>
+</form>
+
 
 {% endblock %}
